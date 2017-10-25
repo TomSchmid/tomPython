@@ -1,0 +1,51 @@
+---         
+# Copyright 2017 SovLabs, LLC
+#   
+# Ansible VMware vRA external inventory script settings
+# This is a template file used by SovLabs automated inventory configuration.rm
+# Logging path/filename.  Must be from root ("/") and own/grp = awx.  Leave blank for no logging.
+logging_file: {{logging_file}}
+
+# The ansible inventory for vRA targets a vRO server to do the inventory work
+# Specify hostname or IP address of vRO Server the SovLabs plugin is installed on.
+vro_host: {{vro_host}}
+
+# Specify port of vRO Server the SovLabs plugin is installed on. Default is 8281
+vro_port: {{vro_port}}
+            
+# Specify a username to access the vRO host.  This setting may also be
+# defined with the VRO_USER environment variable.
+vro_user: {{vro_user}}
+        
+# Specify a password to access the vCenter host. This setting may also be
+# defined with the VRO_PASSWORD environment variable.
+vro_password: {{vro_password}}
+
+#Specify the Ansible Tower Inventory workflow id, defaults to the Sovlabs/AnsibleTower/DynamicInventory workflow
+inventory_workflow_id: 56f83dd8-e8b5-4ceb-a996-8639e2a06fe1
+
+#Specify the Ansible Tower Deprov workflow id, defaults to the Sovlabs/AnsibleTower/DynamicDeprov workflow
+deprov_workflow_id: 03406239-dd1d-433a-ad69-90ebd680b07b
+        
+# Force SSL certificate checking 
+sslcheck: False
+        
+# Specify the tenant for the Ansible Tower instance.  Required.
+tenant: {{tenant}}
+
+# Specify the AnsibleTowerInventoryProfile configuration label to use
+atow_inv_profile_name: {{atow_inv_profile_name}}
+
+# Specify the number of seconds to use the inventory cache before it is
+# considered stale.  If not defined, defaults to 0 seconds.
+cache_max_age: 3600
+
+# Specify the directory used for storing the inventory cache.  If not defined,
+# caching will be disabled. (CREATE FOLDER).  Must be specified from the root ("/") dir.
+cache_dir: {{cache_dir}}
+
+# This is used to query into the past to get machines that might not have been completed during the last run, this
+# should be set to the maximum time it takes for you to build your machines
+# This parameter is in seconds.
+cache_machine_build_time_offset: 3600
+
